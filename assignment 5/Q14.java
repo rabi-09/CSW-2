@@ -19,17 +19,21 @@ public class Q14 {
                 System.out.println("Dest exists .. do you want to overwrite (y/n)");
                 char c = sc.next().charAt(0);
                 if(c=='y'){
-                    FileReader s = new FileReader(src);
-                    FileWriter d = new FileWriter(dest);
-                    int ch;
-                    while ((ch=s.read())!=-1) {
-                        d.write(ch);
-                    }
-                    d.close();
-                    s.close();
+                    copyFile(new FileReader(src), new FileWriter(dest));
                 }
+            }
+            else{
+                copyFile(new FileReader(src), new FileWriter(dest));
             }
         }
         
+    }
+    public static void copyFile(FileReader s, FileWriter d) throws IOException {
+        int ch;
+        while ((ch=s.read())!=-1) {
+            d.write(ch);
+        }
+        d.close();
+        s.close();
     }
 }
