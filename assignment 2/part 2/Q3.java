@@ -1,5 +1,8 @@
+import com.sun.source.tree.BreakTree;
+
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 class Car implements Comparable<Car>{
     private int modelNo, stock;
@@ -37,12 +40,19 @@ class Car implements Comparable<Car>{
 
     @Override
     public String toString() {
-        return "Model Number: "+getModelNo()+" Name: "+getModelNo()+" Stock: "+getStock();
+        return "Model Number: "+getModelNo()+" Name: "+getName()+" Stock: "+getStock();
     }
     public int compareTo(Car c){
         return Integer.compare(this.getStock(), c.getStock());
     }
 
+}
+class sortByStocks implements Comparator<Car>{
+    
+    @Override
+    public int compare(Car o1, Car o2) {
+        return Integer.compare(o1.getStock(), o2.getStock());
+    }
 }
 public class Q3 {
     public static void main(String[] args) {
@@ -53,7 +63,7 @@ public class Q3 {
         carList.add(new Car(2017,"Audi",45));
         carList.add(new Car(2015,"BMW",55));
 
-        Collections.sort(carList);
+        Collections.sort(carList, new sortByStocks());
         System.out.println("Sorted Car List based on Stock:");
         for (Car car : carList) {
             System.out.println(car);
