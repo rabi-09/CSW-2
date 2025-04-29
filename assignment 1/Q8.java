@@ -81,6 +81,7 @@ class CurrentAccount extends Account{
     void withdrawal(double amount) {
         if(getBalance()>amount){
            setOverDraftLimit(getOverDraftLimit()-amount);
+           setBalance(getBalance()-amount);
            System.out.println(amount+" withdrawn successfully");
            System.out.println("You have now Over Draft Limit of rupees :"+getOverDraftLimit());
         }
