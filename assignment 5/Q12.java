@@ -9,8 +9,15 @@ public class Q12 {
         File f = new File(fp);
         if(!f.exists())
             System.out.println("File not exists");
-        else
-            System.out.println("File exists");
-
+        else{
+            if(f.isDirectory()){
+                File[] fList = f.listFiles();
+                for (int i = 0; i < fList.length; i++) {
+                    System.out.println(fList[i]);
+                }
+            }
+            else
+                System.out.println(f+" is not a directory");
+        }
     }
 }
