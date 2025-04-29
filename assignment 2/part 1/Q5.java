@@ -16,7 +16,7 @@ class Student51 implements Comparable<Student51>{
         for (int i = 0, n = Student51s.length; i < n - 1; i++) {
             boolean swapped = false;
             for (int j = 0; j < n - 1 - i; j++) {
-                if (Student51s[j].rollNumber > Student51s[j + 1].rollNumber) {
+                if ((Student51s[j].compareTo(Student51s[j+1])>0)) {
                     Student51 temp = Student51s[j];
                     Student51s[j] = Student51s[j + 1];
                     Student51s[j + 1] = temp;
