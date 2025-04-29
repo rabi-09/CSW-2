@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 class College{
     private String collegeName, collegeLoc;
     public College(String collegeName, String collegeLoc) {
@@ -71,11 +69,9 @@ public class Q6 {
         College c1 = new College("ITER", "BBSR");
         College c2 = new College("NITK", "HR");
         Student s1  = new Student(1, "Rabi",c1);
-        s1.setCollege(c1);
         Student s2  = new Student(2, "Pratik",c1);
-        s2.setCollege(c1);
         Student s3  = new Student(3, "Satya",c2);
-        s3.setCollege(c2);
+
 
         c1.dispayCollegeInfo();
         c2.dispayCollegeInfo();
